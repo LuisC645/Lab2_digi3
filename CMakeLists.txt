@@ -35,7 +35,11 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Lab02 Lab02.c )
+add_executable(Lab02
+                Lab02.c 
+                lib/LM35/lm35.c
+                lib/display/display.c
+            )   
 
 pico_set_program_name(Lab02 "Lab02")
 pico_set_program_version(Lab02 "0.1")
@@ -46,7 +50,9 @@ pico_enable_stdio_usb(Lab02 0)
 
 # Add the standard library to the build
 target_link_libraries(Lab02
-        pico_stdlib)
+        pico_stdlib
+        hardware_adc
+        )
 
 # Add the standard include files to the build
 target_include_directories(Lab02 PRIVATE
