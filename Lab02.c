@@ -1,19 +1,17 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include "lib/LM35/lm35.h"
+#include "lib/LDR/ldr.h"
 
 int main(void) {
     stdio_init_all();
+    sleep_ms(1500);
 
-    // Vref=3300 mV, promedio 16 muestras
-    lm35_begin(3300, 16);
+    ldr_begin(3300, 16); // Vref=3300 mV, promedio 16
 
     while (true) {
-        float tC = lm35_read_celsius();
-        printf("T = %.2f C\n", tC);
-
-        printf("RAW=%u  V=%lu mV\n", lm35_read_raw(), (unsigned long)lm35_read_millivolts());
-
+        printf("LDR: raw=%u  V=%lu mV\n",
+               ldr_read_raw(),
+               (unsigned long)ldr_read_millivolts());
         sleep_ms(500);
     }
 }

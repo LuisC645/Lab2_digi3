@@ -39,6 +39,7 @@ add_executable(Lab02
                 Lab02.c 
                 lib/LM35/lm35.c
                 lib/display/display.c
+                lib/ldr/ldr.c
             )   
 
 pico_set_program_name(Lab02 "Lab02")
@@ -46,7 +47,7 @@ pico_set_program_version(Lab02 "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(Lab02 0)
-pico_enable_stdio_usb(Lab02 0)
+pico_enable_stdio_usb(Lab02 1)
 
 # Add the standard library to the build
 target_link_libraries(Lab02
