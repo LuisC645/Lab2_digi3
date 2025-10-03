@@ -1,17 +1,15 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "lib/LDR/ldr.h"
+#include "lib/lcd/lcd.h"
 
 int main(void) {
     stdio_init_all();
-    sleep_ms(1500);
-
-    ldr_begin(3300, 16); // Vref=3300 mV, promedio 16
-
+    LCD lcd;
+    lcd_init(&lcd, 2, 3, 4, 5, 6, 7); // RS, EN, D4, D5, D6, D7
+    lcd_print(&lcd, "Hola Mundo!");
     while (true) {
-        printf("LDR: raw=%u  V=%lu mV\n",
-               ldr_read_raw(),
-               (unsigned long)ldr_read_millivolts());
-        sleep_ms(500);
+
+        sleep_ms(500);  
     }
 }

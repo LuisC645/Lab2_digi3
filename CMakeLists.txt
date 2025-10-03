@@ -38,8 +38,8 @@ pico_sdk_init()
 add_executable(Lab02
                 Lab02.c 
                 lib/LM35/lm35.c
-                lib/display/display.c
                 lib/ldr/ldr.c
+                lib/lcd/lcd.c
             )   
 
 pico_set_program_name(Lab02 "Lab02")
