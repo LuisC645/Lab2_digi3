@@ -40,6 +40,7 @@ add_executable(Lab02
                 lib/LM35/lm35.c
                 lib/ldr/ldr.c
                 lib/lcd/lcd.c
+                lib/util/util.c
             )   
 
 pico_set_program_name(Lab02 "Lab02")
